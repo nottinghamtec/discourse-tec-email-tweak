@@ -1,0 +1,3 @@
+plugins:
+  tec_email_tweak_category_id:
+    default: ''
