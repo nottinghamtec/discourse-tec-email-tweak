@@ -13,9 +13,8 @@ after_initialize do
         def trim_reply_and_extract_elided(text)
           is_info_message = false
           destinations.each do |destination|
-            next unless destination[:type] == :category
-            category = destination[:obj]
-            is_info_message = true if category.id == SiteSetting.tec_email_tweak_category_id.to_i
+            next unless destination.is_a?(Category)
+            is_info_message = true if destination.id == SiteSetting.tec_email_tweak_category_id.to_i
           end
 
           if is_info_message
